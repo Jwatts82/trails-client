@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { addPark } from '../actions/parkActions'
 
 class ParkForm extends Component {
     state = {
@@ -23,14 +24,14 @@ class ParkForm extends Component {
         event.preventDefault()
         const park = {...this.state.park}
         console.log(park)
-        //this.props.addPark(park)
-        //this.setState({
-          //  park: {
-            //    name: "",
-              //  location: "",
-            //},
-            //loading: false
-        //})
+        this.props.addPark(park)
+        this.setState({
+            park: {
+                name: "",
+                location: "",
+            },
+            loading: false
+        })
 
     }
 
@@ -60,4 +61,4 @@ class ParkForm extends Component {
     }
 
 
-export default connect(null)(ParkForm);
+export default connect(null, { addPark })(ParkForm);
