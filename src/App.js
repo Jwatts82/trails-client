@@ -1,18 +1,28 @@
 import React, { Component } from 'react'
 import ParksContainer from './containers/ParksContainer'
-import TrailsContainer from './containers/TrailsContainer'
+import TrailsContainer from './containers/ParkTrailsContainer'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './components/Home'
+import ParkList from './components/ParkList'
+import Park from './components/Park'
+import Navigation from './components/Navigation'
 
-class App extends Component {
-
-  render(){
+function App() {
   return (
-    <div className="App">
+    <Router>
+      <Navigation />
+      <div className="App">
+
+
+
+        <Route exact path='/' component={Home} />
+        <Route exact path='/parks' component={ParkList} />
+        <Route path='/parks/:id' component={Park} />
+        <Route exact path='/parks/new' component={ParksContainer} />
       
-     < ParksContainer />
-     < TrailsContainer />
-     
-    </div>
-  );}
+      </div>
+    </Router>
+  )
 }
 
 export default App;
