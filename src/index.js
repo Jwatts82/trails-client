@@ -7,7 +7,6 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from './reducers/indexReducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { BrowserRouter as Router } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 

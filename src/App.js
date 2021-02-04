@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ParksContainer from './containers/ParksContainer'
-import TrailsContainer from './containers/ParkTrailsContainer'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/Home'
 import ParkList from './components/ParkList'
