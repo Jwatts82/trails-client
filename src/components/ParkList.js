@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import parkReducer from '../reducers/parkReducer';
+import { getParks } from '../actions/parkActions'
+
 
 class ParkList extends Component {
     render() {
@@ -13,4 +15,4 @@ class ParkList extends Component {
     }
 }
 
-export default connect()(ParkList);
+export default connect(null, {getParks})(ParkList);

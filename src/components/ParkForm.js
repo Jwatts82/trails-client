@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { addPark } from '../actions/parks'
 import { connect } from 'react-redux'
 
 class ParkForm extends Component {
@@ -24,35 +23,35 @@ class ParkForm extends Component {
         event.preventDefault()
         const park = {...this.state.park}
         console.log(park)
-        this.props.addPark(park)
-        this.setState({
-            park: {
-                name: "",
-                location: "",
-            },
-            loading: false
-        })
+        //this.props.addPark(park)
+        //this.setState({
+          //  park: {
+            //    name: "",
+              //  location: "",
+            //},
+            //loading: false
+        //})
 
     }
 
     render() {
         return (
-          
+            
             <form onSubmit={this.handleOnSubmit}>
-                <label>Park Name:</label>
+                <br/>
+                <label>Park Name:</label><br/>
                 <input 
                 name="name"
                 type="text"
                 value={this.state.park.name}
                 onChange={this.handleChange}/> 
                 <br/>
-                <label>Location:</label>
-
+                <label>Location:</label><br />
                 <input 
                 name="location"
                 type="text"
                 value={this.state.park.location}
-                onChange={this.handleChange}/> <br/>
+                onChange={this.handleChange}/> <br/><br/>
 
                 <button type="submit">Add Park</button>       
             </form>
@@ -61,4 +60,4 @@ class ParkForm extends Component {
     }
 
 
-export default connect(null, { addPark })(ParkForm);
+export default connect(null)(ParkForm);
