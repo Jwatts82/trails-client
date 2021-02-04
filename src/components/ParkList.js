@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getParks } from '../actions/parkActions'
+import { Link } from 'react-router-dom' 
 
 
 class ParkList extends Component {
@@ -10,7 +11,11 @@ class ParkList extends Component {
 
     render() {
     console.log("rendering")
-    const parksLis = this.props.parks.map(p => <li key={p.id}>{p.name} - {p.location}</li>)
+    const parksLis = this.props.parks.map(p => 
+        <Link key={p.id}to={`/parks/${p.id}`}> 
+            <li key={p.id}>{p.name} - {p.location}</li>
+        </Link>
+    )
                                             
     return (
             <div className="parklist">
