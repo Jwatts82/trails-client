@@ -1,23 +1,18 @@
 import React, { Component } from 'react'
-import './App.css';
-
-
+import ParksContainer from './containers/ParksContainer'
+import TrailsContainer from './containers/TraailsContainer'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
+
+  render(){
+  return (
+    <div className="App">
       
+     < ParksContainer />
+     < TrailsContainer />
      
-      </div>
-    );
-  }
-
-
-
-
-  }
- 
-
+    </div>
+  );}
+}
 
 export default App;
