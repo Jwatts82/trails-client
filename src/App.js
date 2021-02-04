@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ParksContainer from './containers/ParksContainer'
-import TrailsContainer from './containers/TraailsContainer'
+import TrailsContainer from './containers/TrailsContainer'
 
 class App extends Component {
 
