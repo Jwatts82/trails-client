@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import ParkForm from '../components/ParkForm'
 import { connect } from 'react-redux'
+import { getParks } from './actions/parkActions'
 
 class ParksContainer extends Component {
     render() {
+        
         return (
             <div className="parksContainer">
                 <ParkForm />
@@ -13,11 +15,12 @@ class ParksContainer extends Component {
 }
 
 
-mapStateToProps = state => {
+const mapStateToProps = state => {
     console.log("I am state", state)
     return {
-        parks: state.parkReducer.parks
+        parks: state.parkReducer.parks,
+        loading: state.parkReducer.loading
     }
 }
 
-export default connect(mapStateToProps)(ParksContainer);
+export default connect(mapStateToProps, { getParks })(ParksContainer);
