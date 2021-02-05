@@ -7,7 +7,8 @@ class Park extends Component {
     
     render() {
         console.log("rendering")
-        const trailLis = this.props.trails.map(t => 
+        const park = this.props.parks.find(p => `${p.id}` === this.props.history.match.params.id )
+        const trailLis = park.trails.map(t => 
         <li key={t.id}>{t.name} - {t.miles} - {t.difficulty}</li>)
         
         return (

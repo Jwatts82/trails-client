@@ -7,7 +7,7 @@ class ParkTrailsContainer extends Component {
         return (
             <div className="ParkTrailsContainer">
                 <TrailForm history={this.props}/>
-                <Park />
+                <Park history={this.props}/>
             </div>
         )
     }
