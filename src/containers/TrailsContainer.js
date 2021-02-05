@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import ParkForm from '../components/ParkForm'
 import { connect } from 'react-redux'
 //import { getParks } from '../actions/parkActions'
 
-class ParksContainer extends Component {
+class TrailsContainer extends Component {
     render() {
         
         return (
-            <div className="parksContainer">
-                <ParkForm />
+            <div className="trialsContainer">
+                <h1>All Trails</h1>
             </div>
         )
     }
@@ -23,4 +22,4 @@ class ParksContainer extends Component {
     //}
 //}
 
-export default connect(null)(ParksContainer);
+export default connect(null)(TrailsContainer);

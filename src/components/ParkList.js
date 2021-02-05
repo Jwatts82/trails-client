@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { getParks } from '../actions/parkActions'
 import { Link } from 'react-router-dom' 
 
-
 class ParkList extends Component {
     componentDidMount() {
         this.props.getParks()
@@ -34,7 +33,8 @@ const mapStateToProps = state => {
     console.log("I am state", state)
     return {
         parks: state.parkReducer.parks,
-        loading: state.parkReducer.loading
+        loading: state.parkReducer.loading,
+        //trails: state.trailReducer.trials
     }
 }
 

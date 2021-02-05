@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import ParkList from '../component/ParkList'
+import TrailForm from '../components/TrailForm'
+import Park from '../components/Park'
 
-export default class ParkTrailsContainer extends Component {
+class ParkTrailsContainer extends Component {
     render() {
         return (
-            <div>
-                <h2>My Trails</h2>
-                <ParkList />
+            <div className="ParkTrailsContainer">
+                <TrailForm />
+                <Park />
             </div>
         )
     }

@@ -10,7 +10,7 @@ class Park extends Component {
         return (
             <div>
                 <br/>
-                <h1>Trails for </h1>
+                <h1>I am a park</h1>
                 <br/>
                 
             </div>
@@ -18,17 +18,8 @@ class Park extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log("I am state", state)
-    return {
-        parks: state.parkReducer.parks,
-        loading: state.parkReducer.loading,
-        trails: state.trailReducer.trials
-    }
-}
 
-
-export default connect(mapStateToProps)(Park);
+export default connect()(Park);
 
 
 //<h1>Trails for ${park.id}</h1>

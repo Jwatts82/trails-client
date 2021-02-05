@@ -1,76 +1,78 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getParks } from '../actions/parkActions'
-import { Link } from 'react-router-dom' 
+import { addTrail } from '../actions/trailActions'
+//import parkReducer from '../reducers/trailReducer'
 
+class TrailForm extends Component {
+    state = {
+        trail: {
+            name: "",
+            miles: "",
+            difficulty: ""
+        },
+    }
 
-class ParkList extends Component {
-    componentDidMount() {
-        this.props.getParks()
+    handleChange = event => {
+        this.setState({...this.state,
+            trail: {...this.state.trail,
+                [event.target.name]: event.target.value
+            },
+
+        })
+    }
+
+    handleOnSubmit = event => {
+        event.preventDefault()
+        //this.props.addTrail({trail: this.state, park_id: park.id})
+        const trail = {...this.state.trail, park_id: null}
+        console.log(trail)
+        this.props.addTrail(trail)
+        this.setState({
+            trail: {
+                name: "",
+                miles: "",
+                difficulty: ""
+            },
+        })
+
     }
 
     render() {
-    console.log("rendering")
-    const parksLis = this.props.parks.map(p => 
-        <Link key={p.id}to={`/parks/${p.id}`}> 
-            <li key={p.id}>{p.name} - {p.location}</li>
-        </Link>
-    )
-                                            
-    return (
-            <div className="parklist">
-                <h1>My Parks</h1>
+        return (
+            
+            <form onSubmit={this.handleOnSubmit}>
                 <br/>
-                <ul>
-                    {this.props.loading ? <h3>Loading....</h3> :parksLis}
-                </ul>
-                 
-            </div>
-        )
+                <h3>Add A Trail</h3>
+                <br/>
+                <label>Trail Name:</label><br/>
+                    <input 
+                        name="name"
+                        type="text"
+                        value={this.state.trail.name}
+                        onChange={this.handleChange}/> 
+                    <br/>
+                <label>Miles:</label><br />
+                    <input 
+                        name="miles"
+                        type="text"
+                        value={this.state.trail.miles}
+                        onChange={this.handleChange}/> 
+                    <br/>
+                <label>Difficulty:</label><br />
+                    <input 
+                        name="difficulty"
+                        type="text"
+                        value={this.state.trail.difficulty}
+                        onChange={this.handleChange}/> <br/><br/>
+
+                <button type="submit">Add Trail</button>       
+            </form>
+        );
     }
 }
 
-const mapStateToProps = state => {
-    console.log("I am state", state)
-    return {
-        parks: state.parkReducer.parks,
-        loading: state.parkReducer.loading
-    }
-}
 
-export default connect(mapStateToProps, {getParks})(ParkList);
+export default connect(null, {addTrail})(TrailForm);
 
-/////wrap in a Link to /parks/trails/:id
 
-//render() {
-  //  return (
-        
-    //    <form onSubmit={this.handleOnSubmit}>
-      //      <br/>
-        //    <label>Trail Name:</label><br/>
-          //  <input 
-           // name="name"
-            //type="text"
-            //value={this.state.trail.name}
-            //onChange={this.handleChange}/> 
-            //<br/>
-            //<label>Miles:</label><br />
-            //<input 
-            //name="location"
-            //type="text"
-            //value={this.state.trail.location}
-            //onChange={this.handleChange}/> <br/>
-            //<br/>
-            //<label>Difficulty:</label><br />
-            //<input 
-            //name="location"
-            //type="text"
-            //value={this.state.trail.location}
-            //onChange={this.handleChange}/> <br/><br/>
-
-            //<button type="submit">Add Trail</button>       
-        //</form>
-    //);
-  //}
-//}

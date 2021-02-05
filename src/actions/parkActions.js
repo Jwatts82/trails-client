@@ -18,6 +18,6 @@ export const addPark = park => {
             }
         })
         .then(res => res.json())
-        .then(park => dispatch({type: "PARK_ADDED"}))
+        .then(park => dispatch({type: "PARK_ADDED", payload: park}))
     }
 }

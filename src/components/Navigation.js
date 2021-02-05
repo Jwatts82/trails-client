@@ -40,6 +40,16 @@ const Navigation = () => {
                 }}>
             Add Park</NavLink>
 
+            <NavLink 
+                to='/trails'
+                exact
+                style= {link}
+                activestyle={{
+                    background: 'darkblue'
+                }}>
+            All Trails</NavLink>
+            
+
         </div>
     )
 }
