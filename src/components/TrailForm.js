@@ -2,14 +2,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addTrail } from '../actions/trailActions'
-//import parkReducer from '../reducers/trailReducer'
 
 class TrailForm extends Component {
     state = {
         trail: {
             name: "",
             miles: "",
-            difficulty: ""
+            difficulty: "",
+            //park_id: this.props.park_id
         },
     }
 
@@ -25,14 +25,16 @@ class TrailForm extends Component {
     handleOnSubmit = event => {
         event.preventDefault()
         //this.props.addTrail({trail: this.state, park_id: park.id})
-        const trail = {...this.state.trail, park_id: null}
+        const trail = {...this.state.trail}    ///, park_id: null}
         console.log(trail)
         this.props.addTrail(trail)
         this.setState({
             trail: {
                 name: "",
                 miles: "",
-                difficulty: ""
+                difficulty: "",
+               // park_id: this.props.park_id
+
             },
         })
 
@@ -72,7 +74,13 @@ class TrailForm extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        Parks: state.parkReducer.parks,
+        Trails: state.trailReducer.trails
+    }
+}
 
-export default connect(null, {addTrail})(TrailForm);
+export default connect(mapStateToProps, { addTrail })(TrailForm);
 
 

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import ParkForm from '../components/ParkForm'
-import { connect } from 'react-redux'
-//import { getParks } from '../actions/parkActions'
 
 class ParksContainer extends Component {
     render() {
@@ -14,13 +12,4 @@ class ParksContainer extends Component {
     }
 }
 
-
-//const mapStateToProps = state => {
-  //  console.log("I am state", state)
-    //return {
-      //  parks: state.parkReducer.parks,
-        //loading: state.parkReducer.loading
-    //}
-//}
-
-export default connect(null)(ParksContainer);
+export default ParksContainer;

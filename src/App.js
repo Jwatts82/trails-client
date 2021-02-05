@@ -5,7 +5,7 @@ import Home from './components/Home'
 import ParkList from './components/ParkList'
 import ParkTrailsContainer from './containers/ParkTrailsContainer'
 import Navigation from './components/Navigation'
-import TrailList from './components/TrailList'
+import TrailsContainer from './containers/TrailsContainer'
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route exact path='/parks' component={ParkList} />
         <Route path='/parks/:id' component={ParkTrailsContainer} />
         <Route exact path='/parks/new' component={ParksContainer} />
-        <Route exact path='/trails' component={TrailList} />
+        <Route exact path='/trails' component={TrailsContainer} />
       </div>
     </Router>
   )
