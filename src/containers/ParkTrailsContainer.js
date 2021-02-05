@@ -6,7 +6,7 @@ class ParkTrailsContainer extends Component {
     render() {
         return (
             <div className="ParkTrailsContainer">
-                <TrailForm />
+                <TrailForm history={this.props}/>
                 <Park />
             </div>
         )

@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { getTrails } from '../actions/trailActions'
 
 
 class Park extends Component {
     
     render() {
         console.log("rendering")
-        //const park = this.props.parks.find((p) => `${p.id}` === this.props.match.params.id)
-        //const trailLis = this.props.trails.map(t => 
-        //<li key={t.id}>{t.name} - {t.miles} - {t.difficulty}</li>)
+        const trailLis = this.props.trails.map(t => 
+        <li key={t.id}>{t.name} - {t.miles} - {t.difficulty}</li>)
         
-        
-    
         return (
             <div>
                 <br/>
-                <h1>Park/trails </h1>
+                <h1>Park/trails  </h1>
+                {trailLis}
                 <br/>
                 
             </div>
@@ -32,6 +31,6 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps)(Park);
+export default connect(mapStateToProps, { getTrails })(Park);
 
 

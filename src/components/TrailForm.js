@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addTrail } from '../actions/trailActions'
+import { addTrail } from '../actions/parkActions'
 
 class TrailForm extends Component {
     state = {
@@ -25,7 +25,8 @@ class TrailForm extends Component {
     handleOnSubmit = event => {
         event.preventDefault()
         //this.props.addTrail({trail: this.state, park_id: park.id})
-        const trail = {...this.state.trail}    ///, park_id: null}
+        const trail = {...this.state.trail,
+        park_id: this.props.history.match.params.id}    ///, park_id: null}
         console.log(trail)
         this.props.addTrail(trail)
         this.setState({
@@ -74,13 +75,6 @@ class TrailForm extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        Parks: state.parkReducer.parks,
-        Trails: state.trailReducer.trails
-    }
-}
-
-export default connect(mapStateToProps, { addTrail })(TrailForm);
+export default connect(null, { addTrail })(TrailForm);
 
 

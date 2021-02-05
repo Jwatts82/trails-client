@@ -13,19 +13,28 @@ const parkReducer=(state={parks: [], loading: false}, action) => {
                     loading: false
                 }
 
-            case "ADD_PARKS":
+            case "ADD_TRAILS":
                 return {
-                    ...state,
-                    parks: action.payload,
-                    loading: true
+                ...state,
+                trails: action.payload,
+                loading: true
+            }
+
+        case "TRAIL_ADDED":
+            const newParks = state.parks.map((pk) => {
+                if ( pk.id == action.payload.park_id) {
+                    return {...pk, trails: [...pk.trails, action.payload ]}
+                } else {
+                    return pk
                 }
-    
-            case "PARK_ADDED":
-                return {
-                    ...state,
-                    parks: [...state.parks, action.payload],
-                    loading: false
-                }
+            })
+
+            return {
+                ...state,
+                parks: newParks,
+                loading: false
+            }
+
 
         default:
             return state;

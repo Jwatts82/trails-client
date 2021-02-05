@@ -21,3 +21,18 @@ export const addPark = park => {
         .then(park => dispatch({type: "PARK_ADDED", payload: park}))
     }
 }
+
+export const addTrail = trail => {
+    return (dispatch) => {
+        dispatch({type: "ADD_TRAIL"})
+        fetch(`http://localhost:3001/trails`, { 
+            method: 'POST',
+            body: JSON.stringify(trail),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(trail => dispatch({type: "TRAIL_ADDED", payload: trail}))
+    }
+}
