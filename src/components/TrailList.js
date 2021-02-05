@@ -9,6 +9,8 @@ class TrailList extends Component {
     
     render() {
         console.log("rendering")
+
+        /////////defeine trails
         const trailLis = this.props.trails.map(t => 
         <li key={t.id}>{t.name} - {t.miles} - {t.difficulty}</li>)
 

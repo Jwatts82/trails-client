@@ -9,12 +9,12 @@ class Park extends Component {
         console.log("rendering")
         const park = this.props.parks.find(p => `${p.id}` === this.props.history.match.params.id )
         const trailLis = park.trails.map(t => 
-        <li key={t.id}>{t.name} - {t.miles} - {t.difficulty}</li>)
+        <li key={t.id}>{t.name} - Miles: {t.miles} - Difficulty: {t.difficulty}</li>)
         
         return (
             <div>
                 <br/>
-                <h1>Park/trails  </h1>
+                <h1>Park Trails For {park.name}  </h1>
                 {trailLis}
                 <br/>
                 
@@ -35,3 +35,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, { getTrails })(Park);
 
 
+//<h1>Park Trails For {park.name}  </h1>
+  //              {trailLis}
