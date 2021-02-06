@@ -6,12 +6,12 @@ const trailReducer=(state={trails: [], loading: false}, action) => {
                 loading: true
             }
 
-        //case "FETCH_TRAILS":
-          //  return {
-            //    ...state,
-              //  trails: action.payload,
-                //loading: false
-            //}
+        case "FETCH_TRAILS":
+            return {
+                ...state,
+                trails: action.payload,
+                loading: false
+            }
 
         //case "ADD_TRAILS":
           //  return {

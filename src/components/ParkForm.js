@@ -32,7 +32,7 @@ class ParkForm extends Component {
             },
             loading: false
         })
-
+        this.props.history.push("/parks")
     }
 
     render() {
