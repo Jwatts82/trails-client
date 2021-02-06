@@ -9,7 +9,6 @@ class TrailForm extends Component {
             name: "",
             miles: "",
             difficulty: "",
-            //park_id: this.props.park_id
         },
     }
 
@@ -24,9 +23,8 @@ class TrailForm extends Component {
 
     handleOnSubmit = event => {
         event.preventDefault()
-        //this.props.addTrail({trail: this.state, park_id: park.id})
         const trail = {...this.state.trail,
-        park_id: this.props.history.match.params.id}    ///, park_id: null}
+        park_id: this.props.history.match.params.id}   
         console.log(trail)
         this.props.addTrail(trail)
         this.setState({
@@ -34,7 +32,6 @@ class TrailForm extends Component {
                 name: "",
                 miles: "",
                 difficulty: "",
-               // park_id: this.props.park_id
 
             },
         })
@@ -69,7 +66,9 @@ class TrailForm extends Component {
                         value={this.state.trail.difficulty}
                         onChange={this.handleChange}/> <br/><br/>
 
-                <button type="submit">Add Trail</button>       
+                <button type="submit">Add Trail</button> 
+                <br/>
+                <hr/>      
             </form>
         );
     }
