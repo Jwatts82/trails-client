@@ -18,7 +18,8 @@ class ParkList extends Component {
                                             
     return (
             <div className="parklist">
-                <h1>My Parks</h1>
+                <br/>
+                <h1 className="text-center">My Parks</h1>
                 <br/>
                 <ul>
                     {this.props.loading ? <h3>Loading....</h3> :parksLis}

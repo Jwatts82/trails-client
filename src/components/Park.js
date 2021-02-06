@@ -14,7 +14,8 @@ class Park extends Component {
         return (
             <div>
                 <br/>
-                <h1>Park Trails For {park.name}  </h1>
+                <h3 className="text-center">Park Trails For {park.name}  </h3>
+                <br/>
                 {trailLis}
                 <br/>
                 

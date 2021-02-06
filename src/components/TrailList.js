@@ -20,7 +20,7 @@ class TrailList extends Component {
         return (
             <div className="Traillist">
                 <br/>
-                <h1>My Trails</h1>
+                <h1 className="text-center">My Trails</h1>
                 <br/>
                 <ul>
                 {this.props.loading ? <h3>Loading....</h3> : trailLis}
