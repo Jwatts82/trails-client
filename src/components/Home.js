@@ -3,6 +3,7 @@ import Carousel from './Carousel'
 import { getParks } from '../actions/parkActions'
 import { getTrails } from '../actions/trailActions'
 import { connect } from 'react-redux'
+import  Footer  from './Footer'
 
 
  class Home extends Component {
@@ -19,6 +20,7 @@ import { connect } from 'react-redux'
                     <br/>
                     <br/>
                     <Carousel />
+                    <Footer />
                 </div>
             )
     }
