@@ -4,6 +4,7 @@ import { getParks } from '../actions/parkActions'
 import { getTrails } from '../actions/trailActions'
 import { connect } from 'react-redux'
 import  Footer  from './Footer'
+import Nps from './Nps'
 
 
  class Home extends Component {
@@ -20,6 +21,7 @@ import  Footer  from './Footer'
                     <br/>
                     <br/>
                     <Carousel />
+                    <Nps />
                     <Footer />
                 </div>
             )
