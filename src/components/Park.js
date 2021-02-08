@@ -36,5 +36,3 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, { getTrails })(Park);
 
 
-//<h1>Park Trails For {park.name}  </h1>
-  //              {trailLis}

@@ -13,20 +13,6 @@ const trailReducer=(state={trails: [], loading: false}, action) => {
                 loading: false
             }
 
-        //case "ADD_TRAILS":
-          //  return {
-            //    ...state,
-              //  trails: action.payload,
-                //loading: true
-            //}
-
-        //case "TRAIL_ADDED":
-          //  return {
-            //    ...state,
-              //  trails: [...state.trails, action.payload],
-                //loading: false
-            //}
-
     default:
         return state;
 }

@@ -35,10 +35,8 @@ const mapStateToProps = state => {
     return {
         parks: state.parkReducer.parks,
         loading: state.parkReducer.loading,
-        //trails: state.trailReducer.trials
     }
 }
 
 export default connect(mapStateToProps, {getParks})(ParkList);
 
-/////wrap in a Link to /parks/trails/:id

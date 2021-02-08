@@ -16,9 +16,8 @@ const parkReducer=(state={parks: [], loading: false}, action) => {
             case "ADD_PARK":
                 return {
                     ...state,
-                   // parks: [...state.parks],
                     loading: true
-                } ////////////
+                } 
             
             case 'PARK_ADDED':
                 return {
@@ -26,11 +25,10 @@ const parkReducer=(state={parks: [], loading: false}, action) => {
                     parks: [...state.parks, action.payload],
                     loading: false
                 }
-                    //////////////
+
             case "ADD_TRAILS":
                 return {
                 ...state,
-                //trails: action.payload,
                 loading: true
             }
 
