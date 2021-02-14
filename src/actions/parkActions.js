@@ -7,6 +7,7 @@ export const getParks = () => {
     }
 }
 
+//let variable = () => {}
 export const addPark = park => {
     return (dispatch) => {
         dispatch({type: "ADD_PARK"})

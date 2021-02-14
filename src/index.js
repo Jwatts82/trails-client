@@ -11,7 +11,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store=createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
-
+console.log(store)
 ReactDOM.render(
   <Provider store={store}>
       <App />

@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 
 class ParkList extends Component {
     componentDidMount() {
-        this.props.getParks()
+        this.props.getParksBoundToProps()
     }
 
     render() {
     console.log("rendering")
-    const parksLis = this.props.parks.map(p => 
+    const parksLis = this.props.parks.sort((a, b) => a.name.localeCompare(b.name)).map(p =>         
         <Link key={p.id}to={`/parks/${p.id}`}> 
             <li key={p.id}>{p.name} - {p.location}</li>
         </Link>
@@ -38,5 +38,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {getParks})(ParkList);
+const mapDispatchToProps = dispatch => {
+    return {
+    getParksBoundToProps: () => dispatch(getParks())
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ParkList);
 
