@@ -4,15 +4,24 @@ import { getTrails } from '../actions/trailActions'
 import FilteredTrails from './FilteredTrails'
 import FilteredMiles from './FilteredMiles'
 import { Card } from 'react-bootstrap'
+import { SearchTrails } from './Search'
 
 class TrailList extends Component {
     state = {
         difficulty: "",
         miles: "",
+        search: ""
     }
 
     componentDidMount() {
         this.props.getTrails()
+    }
+
+    updateSearch = event => {
+        console.log(event.target.value, "Searching")
+        this.setState({
+            search: event.target.value
+        })
     }
 
     handleSelect = event => {
@@ -32,19 +41,24 @@ class TrailList extends Component {
     render() {
         let trailsList
         
-        if (this.state.difficulty !== ""){
-            trailsList = this.props.trails.filter( trail => trail.difficulty === this.state.difficulty)
-            console.log(trailsList)
+        if (this.state.search !== "") {
+            trailsList = this.props.trails.filter( trail => {
+                return trail.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+            })
+        } else {
+            if (this.state.difficulty !== ""){
+                trailsList = this.props.trails.filter( trail => trail.difficulty === this.state.difficulty)
+                console.log(trailsList)
+                    if (this.state.miles !== ""){
+                        trailsList = trailsList.filter( trail => trail.miles === parseInt(this.state.miles))
+                    } 
+                    console.log(trailsList)
+            } else {
+                trailsList = this.props.trails
                 if (this.state.miles !== ""){
                     trailsList = trailsList.filter( trail => trail.miles === parseInt(this.state.miles))
                 } 
-                console.log(trailsList)
-        } else {
-            trailsList = this.props.trails
-            if (this.state.miles !== ""){
-                trailsList = trailsList.filter( trail => trail.miles === parseInt(this.state.miles))
-            } 
-        }
+        }}
         //console.log(this.props.trails)
         //console.log(trailsList)
         const sortedTrails = trailsList.sort( (a, b) => a.name.localeCompare(b.name))           
@@ -68,6 +82,12 @@ class TrailList extends Component {
                 <br/>
                 <h1 className="text-center">My Trails</h1>
                 <br/>
+                <h4> Search For a Trail: 
+                    <SearchTrails 
+                        trails={this.props.trails}
+                        updateOnSearch={this.updateSearch}/> </h4>
+                <br/>
+                <h4>OR</h4>
                 <br/>
                 <FilteredTrails 
                     trails={this.props.trails}
