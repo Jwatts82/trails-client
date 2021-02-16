@@ -4,15 +4,24 @@ import { getParks } from '../actions/parkActions'
 import { Link } from 'react-router-dom' 
 import FilteredParks from './FilteredParks'
 import { Card } from 'react-bootstrap'
+import { SearchParks } from './Search'
 
 class ParkList extends Component {
 
     state = {
         location: "",
+        search: ""
     }
 
     componentDidMount() {
         this.props.getParksBoundToProps()
+    }
+
+    updateSearch = event => {
+        console.log(event.target.value, "Searching")
+        this.setState({
+            search: event.target.value
+        })
     }
 
     handleSelect = event => {
@@ -24,13 +33,18 @@ class ParkList extends Component {
 
     render() {
     //console.log("rendering")
-        let parksList  
+        let parksList 
 
-        if (this.state.location !== ""){
-            parksList = this.props.parks.filter( park => park.location === this.state.location)
+        if (this.state.search !== "") {
+            parksList = this.props.parks.filter( park => {
+                return park.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+            })
         } else {
-            parksList = this.props.parks
-        }
+            if (this.state.location !== ""){
+                parksList = this.props.parks.filter( park => park.location === this.state.location)
+            } else {
+                parksList = this.props.parks
+            }}
         // console.log(parksList)
         const sortedParks = parksList.sort( (a, b) => a.name.localeCompare(b.name))           
             //console.log(sortedParks)
@@ -54,6 +68,13 @@ class ParkList extends Component {
             <div className="parklist">
                 <br/>
                 <h1 className="text-center">My Parks</h1>
+                <br/>
+                <h4> Search For a Park: 
+                    <SearchParks
+                        parks={this.props.parks}
+                        updateOnSearch={this.updateSearch}/></h4>
+                <br/>
+                <h4>OR</h4>
                 <br/>
                 <FilteredParks 
                     parks={this.props.parks}
