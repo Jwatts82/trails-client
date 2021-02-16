@@ -1,14 +1,14 @@
 
-const FilteredParks = props => {
-    const parks = props.parks.map( park => {
+const FilteredMiles = props => {
+    const trails = props.trails.map( trail => {
         return (
-            park.location
+            trail.miles
         )
     }).sort()
 
-    const uniqParks = [...new Set(parks)]
+    const uniqTrails = [...new Set(trails)]
 
-    const filterOptions = uniqParks.map( (c, i) => {
+    const filterOptions = uniqTrails.map( (c, i) => {
         return (
             <option key={i} value={c}>
                 {c}
@@ -19,12 +19,12 @@ const FilteredParks = props => {
     return (
             <form>
                 <label>
-                    Filter By Location: &nbsp;
+                    Filter By Miles: &nbsp;
                     <select
-                        id="location"
+                        id="miles"
                         onChange={props.handleOnSelect}
                     >
-                        <option key='all' value=''>All Parks</option>
+                        <option key='all' value=''>All Distances</option>
                         {filterOptions}
                     </select>
                 </label>
@@ -32,4 +32,4 @@ const FilteredParks = props => {
     )
 }
 
-export default FilteredParks;
+export default FilteredMiles;

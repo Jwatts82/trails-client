@@ -24,7 +24,7 @@ const FilterdTrails = props => {
                     id="difficulty"
                     onChange={props.handleOnSelect}
                 >
-                    <option key='all' value=''>All Trails</option>
+                    <option key='all' value=''>All Difficulties</option>
                     {filterOptions}
                 </select>
             </label>
