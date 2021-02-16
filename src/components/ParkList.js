@@ -69,10 +69,10 @@ class ParkList extends Component {
                 <br/>
                 <h1 className="text-center">My Parks</h1>
                 <br/>
-                <h4> Search For a Park: 
+                <h4> Search For a Park: </h4>
                     <SearchParks
                         parks={this.props.parks}
-                        updateOnSearch={this.updateSearch}/></h4>
+                        updateOnSearch={this.updateSearch}/>
                 <br/>
                 <h4>OR</h4>
                 <br/>

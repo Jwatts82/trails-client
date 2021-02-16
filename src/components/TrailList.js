@@ -82,10 +82,10 @@ class TrailList extends Component {
                 <br/>
                 <h1 className="text-center">My Trails</h1>
                 <br/>
-                <h4> Search For a Trail: 
+                <h4> Search For a Trail: </h4>
                     <SearchTrails 
                         trails={this.props.trails}
-                        updateOnSearch={this.updateSearch}/> </h4>
+                        updateOnSearch={this.updateSearch}/>
                 <br/>
                 <h4>OR</h4>
                 <br/>
