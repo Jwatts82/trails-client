@@ -18,3 +18,13 @@ const SearchParks = (props) => {
 }
 
 export { SearchParks };
+
+// const SearchParkTrails = (props) => {
+//     return (
+//         <div>
+//             <input type="text" value={props.search} onChange={props.updateOnSearch} placeholder="Difficulty...."/>
+//         </div>
+//     )
+// }
+
+//export { SearchParkTrails };

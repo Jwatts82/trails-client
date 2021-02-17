@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { getTrails } from '../actions/trailActions'
 
 class Park extends Component {
-    
+
     render() {
+
         console.log("rendering")
         const park = this.props.parks.find(p => `${p.id}` === this.props.history.match.params.id )
         const trailLis = park.trails.map(t => 

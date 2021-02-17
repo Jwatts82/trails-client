@@ -24,7 +24,9 @@ class ParkForm extends Component {
         event.preventDefault()
         const park = {...this.state.park}
         console.log(park)
-        this.props.addPark(park)
+
+        if  (this.state.park.name !="" && this.state.park.location !=""){
+            this.props.addPark(park)
         this.setState({
             park: {
                 name: "",
@@ -33,6 +35,9 @@ class ParkForm extends Component {
             loading: false
         })
         this.props.history.push("/parks")
+        } else {
+            alert("enter park information") 
+        }
     }
 
     render() {
