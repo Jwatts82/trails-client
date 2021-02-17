@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getTrails } from '../actions/trailActions'
-import FilteredTrails from './FilteredTrails'
-import FilteredMiles from './FilteredMiles'
+import { FilteredTrails } from './Filtered'
+import { FilteredMiles } from './Filtered'
 import { Card } from 'react-bootstrap'
 import { SearchTrails } from './Search'
 

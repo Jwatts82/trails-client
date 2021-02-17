@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getParks } from '../actions/parkActions'
 import { Link } from 'react-router-dom' 
-import FilteredParks from './FilteredParks'
+import { FilteredParks } from './Filtered'
 import { Card } from 'react-bootstrap'
 import { SearchParks } from './Search'
 
@@ -14,7 +14,7 @@ class ParkList extends Component {
     }
 
     componentDidMount() {
-        this.props.getParksBoundToProps()
+        this.props.getParks()
     }
 
     updateSearch = event => {
@@ -98,10 +98,5 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-    getParksBoundToProps: () => dispatch(getParks())
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(ParkList);
+export default connect(mapStateToProps, { getParks })(ParkList);
 

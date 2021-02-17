@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getTrails } from '../actions/trailActions'
 
-
 class Park extends Component {
     
     render() {
