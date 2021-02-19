@@ -25,7 +25,7 @@ class ParkForm extends Component {
         const park = {...this.state.park}
         console.log(park)
 
-        if  (this.state.park.name !="" && this.state.park.location !=""){
+        if  (this.state.park.name !=="" && this.state.park.location !==""){
             this.props.addPark(park)
         this.setState({
             park: {

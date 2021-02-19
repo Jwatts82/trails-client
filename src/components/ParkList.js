@@ -10,7 +10,8 @@ class ParkList extends Component {
 
     state = {
         location: "",
-        search: ""
+        search: "",
+        likes: {}
     }
 
     componentDidMount() {
@@ -21,6 +22,17 @@ class ParkList extends Component {
         console.log(event.target.value, "Searching")
         this.setState({
             search: event.target.value
+        })
+    }
+
+    handleClick = event => {
+        console.log(event.target.dataset.id, "I Like This")
+        this.setState ({
+            ...this.state,
+            likes: {
+                ...this.state.likes,
+                [event.target.dataset.id]: this.state.likes[event.target.dataset.id] ? this.state.likes[event.target.dataset.id] + 1 : 1
+            }
         })
     }
 
@@ -58,6 +70,7 @@ class ParkList extends Component {
                             <h4 className="card-title">{p.name} </h4> 
                             <h5 className="card-subtitle"> {p.location}</h5>
                         </Link>
+                        <button data-id={p.id} onClick={this.handleClick} >Likes {this.state.likes[p.id] || 0}</button>
                     </Card.Body>
                 </Card> 
                     

@@ -26,7 +26,7 @@ class TrailForm extends Component {
         const trail = {...this.state.trail,
         park_id: this.props.history.match.params.id}   
         console.log(trail)
-            if (this.state.trail.name !="" && this.state.trail.miles !="" && this.state.trail.difficulty !=""){
+            if (this.state.trail.name !=="" && this.state.trail.miles !=="" && this.state.trail.difficulty !==""){
                 this.props.addTrail(trail)
                 this.setState({
                     trail: {
